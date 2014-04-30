@@ -100,7 +100,7 @@ if ( $target eq 'ZMQ-Constants' ) {
         Test::Requires
         Test::TCP
     ));
-    foreach my $zmq_version( qw(2.2.0 3.2.2) ) {
+    foreach my $zmq_version( qw(2.2.0 3.2.4) ) {
         $ENV{CZMQ_HOME} = install_libczmq($zmq_version);
         cpanm(File::Spec->catdir($ROOT, "ZMQ-LibCZMQ1"));
         test_binding("ZMQ-CZMQ");
@@ -116,7 +116,7 @@ if ( $target eq 'ZMQ-Constants' ) {
         Test::Requires
         Test::TCP
     ));
-    foreach my $zmq_version ( qw(2.2.0 3.2.2) ) {
+    foreach my $zmq_version ( qw(2.2.0 3.2.4) ) {
         $ENV{CZMQ_HOME} = install_libczmq($zmq_version);
         test_binding("ZMQ-LibCZMQ1");
         if ($ENV{ZMQ_HOME} && -d $ENV{ZMQ_HOME}) {
@@ -135,7 +135,7 @@ if ( $target eq 'ZMQ-Constants' ) {
     cpanm(qw(AnyEvent Proc::Guard));
     test_binding("ZMQ-LibZMQ2");
 } elsif ( $target eq 'ZMQ-LibZMQ3' ) {
-    $ENV{ZMQ_HOME} = install_libzmq("zeromq-3.2.2");
+    $ENV{ZMQ_HOME} = install_libzmq("zeromq-3.2.4");
     cpanm(qw(
         inc::Module::Install
         Module::Install::AuthorTests
@@ -157,7 +157,7 @@ if ( $target eq 'ZMQ-Constants' ) {
         Module::Install::XSUtil
     ));
 
-    foreach my $zmq_version(qw(2.2.0 3.2.2)) {
+    foreach my $zmq_version(qw(2.2.0 3.2.4)) {
         my $backend = sprintf 'LibZMQ%d', substr($zmq_version, 0, 1);
         $ENV{ZMQ_HOME} = install_libzmq("zeromq-$zmq_version");
         cpanm(File::Spec->catdir($ROOT, "ZMQ-$backend"));
